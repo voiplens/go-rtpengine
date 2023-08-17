@@ -1,6 +1,6 @@
 module github.com/angarium-cloud/go-rtpengine
 
-go 1.20
+go 1.21
 
 require (
 	github.com/go-kit/log v0.2.1
