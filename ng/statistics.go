@@ -59,6 +59,7 @@ type MosMetrics struct {
 	MosAverage      float64 `json:"mos_average,string"`
 	MosStddev       float64 `json:"mos_stddev,string"`
 }
+
 type VoipMetrics struct {
 	JitterTotal                float64 `json:"jitter_total,string"`
 	Jitter2Total               float64 `json:"jitter2_total,string"`
@@ -173,7 +174,8 @@ type ControlMetrics struct {
 	TotalSubansCount         int `json:"totalsubanscount"`
 	TotalunsubCount          int `json:"totalunsubcount"`
 }
-type InterfacesMetrics []struct {
+
+type InterfacesMetrics struct {
 	Name    string `json:"name"`
 	Address string `json:"address"`
 	Ports   struct {
@@ -232,13 +234,13 @@ type InterfacesMetrics []struct {
 }
 
 type Statistics struct {
-	Current     CurrentMetrics    `json:"currentstatistics"`
-	Total       TotalMetrics      `json:"totalstatistics"`
-	Mos         MosMetrics        `json:"mos"`
-	Voip        VoipMetrics       `json:"voip_metrics"`
-	Control     ControlMetrics    `json:"controlstatistics"`
-	Interfaces  InterfacesMetrics `json:"interfaces"`
-	Transcoders []any             `json:"transcoders"`
+	Current     CurrentMetrics      `json:"currentstatistics"`
+	Total       TotalMetrics        `json:"totalstatistics"`
+	Mos         MosMetrics          `json:"mos"`
+	Voip        VoipMetrics         `json:"voip_metrics"`
+	Control     ControlMetrics      `json:"controlstatistics"`
+	Interfaces  []InterfacesMetrics `json:"interfaces"`
+	Transcoders []any               `json:"transcoders"`
 }
 
 func (c Client) GetStatistics() (*Statistics, error) {
