@@ -1,4 +1,4 @@
-module github.com/voiplens/go-rtpengine
+module go.voiplens.io/rtpengine
 
 go 1.22
 
